@@ -1,0 +1,8 @@
+[
+    {
+        "member_id": "M001",
+        "name": "Alice",
+        "email": "alice@mail.com",
+        "isActive": "Active"
+    }
+]

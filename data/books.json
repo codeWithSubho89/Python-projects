@@ -1,0 +1,14 @@
+[
+    {
+        "book_id": "B001",
+        "title": "Clean Code",
+        "author": "Robert C. Martin",
+        "quantity": 5
+    },
+    {
+        "book_id": "B002",
+        "title": "The UX Book",
+        "author": "Rex Hartson",
+        "quantity": 5
+    }
+]
