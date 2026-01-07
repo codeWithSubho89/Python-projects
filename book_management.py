@@ -7,10 +7,10 @@ class BookManagement:
     def display_books(self):
         print("-------------------------LIST OF BOOKS--------------------------------")
         print("----------------------------------------------------------------------")
-        print("BOOK ID","\t","TITLE","\t\t\t\t","AUTHOR")
+        print("BOOK ID","\t","TITLE","\t\t\t\t","AUTHOR","\t\t\t")
         books = load_file(self.BOOK_File)
         for book in books:
-           print(f"{book["book_id"]} ---------{book["title"]}---------------------{book["author"]}")
+           print(f"{book["book_id"]} ---------{book["title"]}---------------------{book["author"]}---------{book["quantity"]}")
 
 
 
@@ -25,19 +25,19 @@ class BookManagement:
         for book in books:
             if book["book_id"] == book_id :
                 print("-------This book already exists---------")
-                ask = input("Enter 'Y' to update Quantity or 'N' to restart : ").lower()
+                ask = input("Do you want to update Quantity (Y/N) : ").lower()
                 if ask == 'y':
                     quantity = int(input("Enter book Quantity: "))
                     if quantity <= 0:
                         print("Quantity must be greater than 0")
-                        return self.add_books()
+                        return 
                     else:
                         book["quantity"] += quantity
                         save_file(self.BOOK_File,books)
                         print("Quantity update Successfull !!!")
                         return
                 else:
-                    return self.add_books()
+                    return 
 
          
         title = input("Enter book title: ").strip()
@@ -74,9 +74,9 @@ class BookManagement:
                     save_file(self.BOOK_File,books)
                     print("Quantity updated !!!")
                     return
-            else:
-                print("Invaild book ID")
-                return self.update_quantity()
+        else:
+            print("Invaild book ID")
+                
             
     def remove_book(self):
         book_id = input("Enter your book ID: ").strip().upper()
